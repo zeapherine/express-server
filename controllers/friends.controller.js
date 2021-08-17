@@ -22,12 +22,10 @@ function postFriend(req, res) {
 			error: 'Missing friend name',
 		});
 	}
-
 	const newFriend = {
 		name: req.body.name,
 		id: model.length,
 	};
-
 	model.push(newFriend);
 	res.json(newFriend);
 }
