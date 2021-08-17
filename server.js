@@ -6,6 +6,11 @@ const messagesRouter = require('./routes/messages.router');
 
 const app = express();
 
+// setting up templating engine
+// handlebars engine (hbs)
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'views'));
+
 const PORT = 3000;
 
 // timer middleware
@@ -18,7 +23,7 @@ app.use((req, res, next) => {
 	console.log(`${req.method} ${req.baseUrl}${req.url} ${delta}.ms`);
 });
 
-// Serving websites.
+// Serving static files.
 app.use('/site', express.static(path.join(__dirname, 'public')));
 
 // JSON parsing express middleware.
@@ -27,6 +32,12 @@ app.use('/site', express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
 // mounting a routes
+app.get('/', (req, res) => {
+	res.render('index.hbs', {
+		title: 'The Witches',
+		caption: 'The Legendary Trio Witches',
+	});
+});
 app.use('/friends', friendsRouter);
 app.use('/messages', messagesRouter);
 

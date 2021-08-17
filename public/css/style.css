@@ -2,7 +2,6 @@ body {
 	background-color: #dfe6e9;
 	padding: 50px;
 	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
-	height: 90vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -16,4 +15,14 @@ img {
 
 h1 {
 	color: #00b7ff;
+}
+
+.api-routes {
+	background-color: beige;
+	margin: 30px 10px;
+	padding: 10px 10px;
+	color: rgb(33, 66, 143);
+	font-size: 18px;
+	width: 60%;
+	text-align: center;
 }

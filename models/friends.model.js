@@ -1,11 +1,15 @@
 const friends = [
 	{
 		id: 0,
-		name: 'Albert Einstein',
+		name: 'Harry Potter',
 	},
 	{
 		id: 1,
-		name: 'Sir Isaac Newton',
+		name: 'Hermione Granger',
+	},
+	{
+		id: 2,
+		name: 'Ronald Weasley',
 	},
 ];
 
