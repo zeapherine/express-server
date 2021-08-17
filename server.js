@@ -15,6 +15,7 @@ const friends = [
 	},
 ];
 
+// timer middleware
 app.use((req, res, next) => {
 	const start = Date.now();
 	next();
@@ -24,8 +25,29 @@ app.use((req, res, next) => {
 	console.log(`${req.method} ${req.url} ${delta}.ms`);
 });
 
+// JSON parsing express middleware.
+// express does not read JSON out of the box.
+// req.body won't be available without the middleware.
+app.use(express.json());
+
 app.get('/friends', (req, res) => {
 	res.json(friends);
+});
+
+app.post('/friends', (req, res) => {
+	if (!req.body.name) {
+		return res.status(400).json({
+			error: 'Missing friend name',
+		});
+	}
+
+	const newFriend = {
+		name: req.body.name,
+		id: friends.length,
+	};
+
+	friends.push(newFriend);
+	res.json(newFriend);
 });
 
 app.get('/friends/:friendId', (req, res) => {
