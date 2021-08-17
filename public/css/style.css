@@ -1,0 +1,19 @@
+body {
+	background-color: #dfe6e9;
+	padding: 50px;
+	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+	height: 90vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+img {
+	height: 600px;
+	width: 500px;
+}
+
+h1 {
+	color: #00b7ff;
+}

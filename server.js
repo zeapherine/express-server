@@ -1,4 +1,6 @@
 const express = require('express');
+const path = require('path');
+
 const friendsRouter = require('./routes/friends.router');
 const messagesRouter = require('./routes/messages.router');
 
@@ -15,6 +17,9 @@ app.use((req, res, next) => {
 	const delta = Date.now() - start;
 	console.log(`${req.method} ${req.baseUrl}${req.url} ${delta}.ms`);
 });
+
+// Serving websites.
+app.use('/site', express.static(path.join(__dirname, 'public')));
 
 // JSON parsing express middleware.
 // express does not read JSON out of the box.
