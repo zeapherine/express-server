@@ -15,6 +15,15 @@ const friends = [
 	},
 ];
 
+app.use((req, res, next) => {
+	const start = Date.now();
+	next();
+
+	//actions go here : following code run after getting the response from route handlers
+	const delta = Date.now() - start;
+	console.log(`${req.method} ${req.url} ${delta}.ms`);
+});
+
 app.get('/friends', (req, res) => {
 	res.json(friends);
 });
@@ -26,7 +35,7 @@ app.get('/friends/:friendId', (req, res) => {
 		res.status(200).json(friend);
 	} else {
 		res.status(404).json({
-			error: 'Friend not found',
+			error: 'Friend does not exists',
 		});
 	}
 });
