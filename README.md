@@ -4,7 +4,7 @@
 
 	## API routes
 	
-	#### `GET:   /`
+	#### ``` GET:   / `
 	#### GET:   /friends
 	#### GET:   /friends/:id
 	#### POST:  /friends
